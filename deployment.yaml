@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appointment-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: appointment
+  template:
+    metadata:
+      labels:
+        app: appointment
+    spec:
+      containers:
+      - name: appointment
+        image: sivasakthi2322/appointment-app:latest   # ✅ UPDATE HERE
+        imagePullPolicy: Always                      # ✅ IMPORTANT
+        ports:
+        - containerPort: 8080
